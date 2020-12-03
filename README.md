@@ -12,6 +12,7 @@ v.0.0.2
 **修改插件名为cocoapods-bin，兼容之前的项目**  
 **版本号比原生cocoapods-bin大一个版本，为0.1.31，替代cocoapods-bin插件**   
 **pod install OR update 时候，删除xxx-build-temp目录**  
+**yml配置文件新增other_code_repo_url，支持本地配置多个源码仓库，通过pod bin init 配置，多个仓库地址用英文逗号隔开**  
 
 ### 使用方法
 1. 克隆项目到本地

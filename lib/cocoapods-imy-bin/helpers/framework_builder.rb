@@ -94,10 +94,7 @@ module CBin
         #目标文件夹
         target_static_dir = framework.versions_path
 
-        puts "路径-->#{static_dir},文件是否存在#{File.exist?(static_dir)}"
-
         if File.exist?(static_dir)
-          puts "当前文件存在"
           # 复制到framework文件夹
           `cp -fa build-arm64/lib#{@spec.name}.a #{target_static_dir}`
           # 重命名

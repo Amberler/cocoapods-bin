@@ -125,7 +125,7 @@ module Pod
             argvs += ["--env=#{@env}"]
           end
           argvs += ["--configuration=#{@config}"]
-            
+
           archive = Pod::Command::Bin::Archive.new(CLAide::ARGV.new(argvs))
           archive.validate!
           sources_sepc = archive.run

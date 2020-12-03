@@ -151,21 +151,21 @@ module Pod
         def generate_project
           Podfile.execute_with_bin_plugin do
             Podfile.execute_with_use_binaries(!@code_dependencies) do
+
                 argvs = [
-                  "--sources=#{sources_option(@code_dependencies, @sources)}",
+                  "--sources=#{@sources},#{CBin.config.other_code_repo_url}",
                   "--gen-directory=#{CBin::Config::Builder.instance.gen_dir}",
                   '--clean',
                   '--use-libraries',
                   *@additional_args
                 ]
-
                 podfile= File.join(Pathname.pwd, "Podfile")
                 if File.exist?(podfile)
                   argvs += ['--use-podfile']
                 end
                 
                 argvs << spec_file if spec_file
-
+                
                 gen = Pod::Command::Gen.new(CLAide::ARGV.new(argvs))
                 gen.validate!
                 gen.run

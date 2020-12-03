@@ -13,6 +13,7 @@ module CBin
       {
           'configuration_env' => { description: '编译环境', default: 'dev', selection: %w[dev debug_iphoneos release_iphoneos] },
           'code_repo_url' => { description: '源码私有源 Git 地址', default: 'http://192.168.50.216/cxd/spec_source.git' },
+          'other_code_repo_url' => { description: '其他源码仓库Git 地址', default: 'https://cdn.cocoapods.org' },
           'binary_repo_url' => { description: '二进制私有源 Git 地址', default: 'http://192.168.50.216/cxd/spec_bin.git' },
           'binary_download_url' => { description: '二进制下载地址，内部会依次传入组件名称与版本，替换字符串中的 %s ', default: 'http://192.168.50.216:4321/frameworks/%s/%s/zip' },
           # 'binary_type' => { description: '二进制打包类型', default: 'framework', selection: %w[framework library] },
