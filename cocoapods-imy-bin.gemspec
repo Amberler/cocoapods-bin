@@ -4,12 +4,12 @@ $LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
 require 'cocoapods-imy-bin/gem_version.rb'
 
 Gem::Specification.new do |spec|
-  spec.name          = 'cocoapods-imy-bin'
+  spec.name          = 'cocoapods-bin'
   spec.version       = CBin::VERSION
   spec.authors       = ['苏良锦']
   spec.email         = ['suliangjin@xiaoyouzi.com']
-  spec.description   = %q{cocoapods-imy-bin is a plugin which helps develpers switching pods between source code and binary.}
-  spec.summary       = %q{cocoapods-imy-bin is a plugin which helps develpers switching pods between source code and binary.}
+  spec.description   = %q{cocoapods-bin is a plugin which helps develpers switching pods between source code and binary.}
+  spec.summary       = %q{cocoapods-bin is a plugin which helps develpers switching pods between source code and binary.}
   spec.homepage      = 'https://github.com/su350380433/cocaopods-imy-bin'
   spec.license       = 'MIT'
 

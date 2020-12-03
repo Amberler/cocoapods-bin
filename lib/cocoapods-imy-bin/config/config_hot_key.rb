@@ -60,7 +60,7 @@ module CBin
 
     def config
       @config ||= begin
-                    puts "====== cocoapods-imy-bin #{CBin::VERSION} 版本 ======== \n"
+                    puts "====== cocoapods-bin #{CBin::VERSION} 版本 ======== \n"
                     @config = OpenStruct.new load_config
                     validate!
                     @config

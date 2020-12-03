@@ -72,8 +72,8 @@ module Pod
     private
 
     def valid_bin_plugin
-      unless plugins.keys.include?('cocoapods-imy-bin')
-        raise Pod::Informative, 'You should add `plugin \'cocoapods-imy-bin\'` before using its DSL'
+      unless plugins.keys.include?('cocoapods-bin')
+        raise Pod::Informative, 'You should add `plugin \'cocoapods-bin\'` before using its DSL'
       end
     end
 

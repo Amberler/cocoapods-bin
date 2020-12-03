@@ -18,8 +18,8 @@ module Pod
           仅支持 iOS 平台
           此静态 framework/.a 不包含依赖组件的 symbol
 
-          一个用ccache，一个是cocoapods-imy-bin插件支持下的，
-          拿xcodebuild生成的中间构建产物，如生成的 libIMYYQHome.a，利用cocoapods-imy-bin 制作成二进制静态库，保存起来。
+          一个用ccache，一个是cocoapods-bin插件支持下的，
+          拿xcodebuild生成的中间构建产物，如生成的 libIMYYQHome.a，利用cocoapods-bin 制作成二进制静态库，保存起来。
           下次pod update 工程时，在pod update时去捞已经生成的二进制组件打包。这样可以大大减少编译时间
 
           制作流程:
@@ -40,7 +40,7 @@ module Pod
         def initialize(argv)
           @env = argv.option('env') || 'dev'
           CBin.config.set_configuration_env(@env)
-          UI.warn "====== cocoapods-imy-bin #{CBin::VERSION} 版本 ======== \n "
+          UI.warn "====== cocoapods-bin #{CBin::VERSION} 版本 ======== \n "
           UI.warn "======  #{@env} 环境 ======== "
 
 

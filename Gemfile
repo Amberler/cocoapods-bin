@@ -21,7 +21,7 @@ group :development do
 
   cp_gem 'cocoapods',                'cocoapods',path: 'CocoaPods'
   cp_gem 'xcodeproj',                'xcodeproj',path: 'Xcodeproj'
-  cp_gem 'cocoapods-imy-bin',                'cocoapods-imy-bin',path: 'cocoapods-imy-bin'
+  cp_gem 'cocoapods-bin',            'cocoapods-bin',path: 'cocoapods-imy-bin'
 
   gem 'cocoapods-generate', '1.6.0'
   gem 'mocha'

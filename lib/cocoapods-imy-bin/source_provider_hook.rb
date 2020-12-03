@@ -2,14 +2,14 @@ require 'cocoapods-imy-bin/native/sources_manager'
 require 'cocoapods-imy-bin/command/bin/repo/update'
 require 'cocoapods/user_interface'
 
-Pod::HooksManager.register('cocoapods-imy-bin', :pre_install) do |_context, _|
+Pod::HooksManager.register('cocoapods-bin', :pre_install) do |_context, _|
   require 'cocoapods-imy-bin/native'
 
   # pod bin repo update 更新二进制私有源
   Pod::Command::Bin::Repo::Update.new(CLAide::ARGV.new([])).run
 
   # 有插件/本地库 且是dev环境下，默认进入源码白名单  过滤 archive命令
-  if _context.podfile.plugins.keys.include?('cocoapods-imy-bin') && _context.podfile.configuration_env == 'dev'
+  if _context.podfile.plugins.keys.include?('cocoapods-bin') && _context.podfile.configuration_env == 'dev'
     dependencies = _context.podfile.dependencies
     dependencies.each do |d|
       next unless d.respond_to?(:external_source) &&
@@ -38,7 +38,7 @@ Pod::HooksManager.register('cocoapods-imy-bin', :pre_install) do |_context, _|
   end
 end
 
-Pod::HooksManager.register('cocoapods-imy-bin', :source_provider) do |context, _|
+Pod::HooksManager.register('cocoapods-bin', :source_provider) do |context, _|
   sources_manager = Pod::Config.instance.sources_manager
   podfile = Pod::Config.instance.podfile
 

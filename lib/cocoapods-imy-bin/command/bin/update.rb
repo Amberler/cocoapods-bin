@@ -122,7 +122,7 @@ module Pod
                       # 把本地和原始到dependencies 合并，设置dependencies
                       local_dependencies.each do |d|
                         UI.message "Development Pod #{d.to_yaml}"
-                        if podfile.plugins.keys.include?('cocoapods-imy-bin')
+                        if podfile.plugins.keys.include?('cocoapods-bin')
                           podfile.set_use_source_pods(d.keys.first) if (d.is_a?(Hash) && d.keys.first)
                         end
                       end

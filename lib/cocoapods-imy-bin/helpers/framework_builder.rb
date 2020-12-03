@@ -49,7 +49,6 @@ module CBin
           copy_headers
           copy_license
           copy_resources
-
           cp_to_source_dir
         end
         framework
@@ -90,15 +89,20 @@ module CBin
       end
 
       def build_static_library_for_ios(output)
-
+        #当前二进制文件路径
+        static_dir = "build-arm64/lib#{@spec.name}.a"
         #目标文件夹
         target_static_dir = framework.versions_path
 
-        # 复制到framework文件夹
-        `cp -fa build-arm64/lib#{@spec.name}.a #{target_static_dir}`
-        # 重命名
-        `mv #{target_static_dir}/lib#{@spec.name}.a #{target_static_dir}/#{Pathname.new(@spec.name)}`
+        puts "路径-->#{static_dir},文件是否存在#{File.exist?(static_dir)}"
 
+        if File.exist?(static_dir)
+          puts "当前文件存在"
+          # 复制到framework文件夹
+          `cp -fa build-arm64/lib#{@spec.name}.a #{target_static_dir}`
+          # 重命名
+          `mv #{target_static_dir}/lib#{@spec.name}.a #{target_static_dir}/#{Pathname.new(@spec.name)}`
+        end
       end
 
       def ios_build_options

@@ -126,7 +126,7 @@ module Pod
             source = use_binary ? sources_manager.binary_source : sources_manager.code_source
 
             spec_version = rspec.spec.version
-            UI.message 'cocoapods-imy-bin 插件'
+            UI.message 'cocoapods-bin 插件'
             UI.message "- 开始处理 #{rspec.spec.name} #{spec_version} 组件."
 
             begin
