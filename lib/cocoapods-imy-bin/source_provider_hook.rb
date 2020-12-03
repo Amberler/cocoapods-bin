@@ -52,3 +52,21 @@ Pod::HooksManager.register('cocoapods-bin', :source_provider) do |context, _|
     added_sources.each { |source| context.add_source(source) }
   end
 end
+
+Pod::HooksManager.register('cocoapods-bin', :post_install) do |context, _|
+  if File.directory?(CBin::Config::Builder.instance.root_dir)
+    unless CBin.config.buildBinary
+      FileUtils.rm_rf(CBin::Config::Builder.instance.root_dir)
+      print "所有组件处理完毕.".green
+     end 
+  end
+  # if podfile
+  #   # 添加源码私有源 && 二进制私有源
+  #   added_sources = [sources_manager.code_source]
+  #   if podfile.use_binaries? || podfile.use_binaries_selector
+  #     added_sources << sources_manager.binary_source
+  #     added_sources.reverse!
+  #  end
+  #   added_sources.each { |source| context.add_source(source) }
+  # end
+end

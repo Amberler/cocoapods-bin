@@ -55,8 +55,12 @@ module CBin
       binary_download_url[0,binary_download_url.length - cut_string.length]
     end
 
-    def set_configuration_env(env)
-      @configuration_env = env
+    def set_buildBinary(buildBinary)
+      @buildBinary = buildBinary
+    end
+
+    def buildBinary
+      @buildBinary
     end
 
     #包含arm64  armv7架构，xcodebuild 是Debug模式
@@ -80,6 +84,11 @@ module CBin
 
     def default_config
       @default_config ||= Hash[template_hash.map { |k, v| [k, v[:default]] }]
+    end
+
+
+    def set_configuration_env(env)
+      @configuration_env = env
     end
 
     private

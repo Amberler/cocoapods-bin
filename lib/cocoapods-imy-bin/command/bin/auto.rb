@@ -41,8 +41,13 @@ module Pod
           @verbose = argv.flag?('verbose',true)
 
           @config = argv.option('configuration', 'Debug')
-          @additional_args = argv.remainder!
 
+          if @all_make
+            # 当前为制作二进制模式，存储状态
+            CBin.config.set_buildBinary(true)
+          end
+
+          @additional_args = argv.remainder!
           super
         end
 
@@ -120,7 +125,7 @@ module Pod
             argvs += ["--env=#{@env}"]
           end
           argvs += ["--configuration=#{@config}"]
-          
+            
           archive = Pod::Command::Bin::Archive.new(CLAide::ARGV.new(argvs))
           archive.validate!
           sources_sepc = archive.run

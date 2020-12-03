@@ -25,6 +25,7 @@ module Pod
 
         def initialize(argv)
           @update = argv.flag?('update')
+          CBin::Config::Builder.instance.saveArgvs(argv.remainder!)
           super
           @additional_args = argv.remainder!
         end
@@ -34,6 +35,7 @@ module Pod
           argvs = [
             *@additional_args
           ]
+          CBin::Config::Builder.instance.saveArgvs(argv.remainder!)
           gen = Pod::Command::Install.new(CLAide::ARGV.new(argvs))
           gen.validate!
           gen.run

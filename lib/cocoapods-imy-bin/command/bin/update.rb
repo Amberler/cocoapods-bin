@@ -36,6 +36,10 @@ module Pod
           @additional_args = argv.remainder!
         end
 
+        def self.extraArgs
+          return @additional_args
+        end
+
         def run
           Update.load_local_podfile
 
