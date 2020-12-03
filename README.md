@@ -1,4 +1,4 @@
-## cocoapods-bin 二进制插件，基于cocoapods-imy-bin维护
+## cocoapods-bin 二进制插件，基于cocoapods-imy-bin修改维护
 
 **首先感谢火掌柜和美柚团队开源的如此好用的工具**
 
@@ -13,13 +13,20 @@ v.0.0.2
 **版本号比原生cocoapods-bin大一个版本，为0.1.31，替代cocoapods-bin插件**   
 **pod install OR update 时候，删除xxx-build-temp目录**  
 
-###使用方法
+### 使用方法
 1. 克隆项目到本地
 2. 终端进入到当前文件夹目录
 3. 编译，终端执行  gem build cocoapods-bin.gemspec
 4. 安装，终端执行  sudo gem install cocoapods-bin-0.1.31.gem
 5. 卸载，终端执行  sudo gem uninstall cocoapods-bin
 
+### 脚本安装
+**安装**
+curl https://raw.githubusercontent.com/Amberler/cocoapods-bin/master/cocoapods-bin-0.1.31.gem --output ~/cocoapods-bin.gem && sudo gem install ~/cocoapods-bin.gem
+**卸载**
+    sudo gem uninstall cocoapods-bin
+**安装原版cocoapods-bin**
+    sudo gem install cocoapods-bin
 
 
 
