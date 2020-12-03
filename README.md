@@ -7,10 +7,10 @@ cocoapods-bin 已经不维护了，新出的cocoapods-imy-bin又更便捷，目�
 没办法了，那就自己动手吧
 
 v.0.0.2
-**默认只编译arm64架构**
-**解决可能出现的framework编译失败问题**
-**修改插件名为cocoapods-bin，兼容之前的项目**
-**版本号比原生cocoapods-bin大一个版本，为0.1.31，替代cocoapods-bin插件**
+**默认只编译arm64架构**  
+**解决可能出现的framework编译失败问题**  
+**修改插件名为cocoapods-bin，兼容之前的项目**  
+**版本号比原生cocoapods-bin大一个版本，为0.1.31，替代cocoapods-bin插件**  
 
 ###使用方法
 1. 克隆项目到本地
