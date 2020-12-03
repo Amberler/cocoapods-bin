@@ -21,11 +21,11 @@ v.0.0.2
 5. 卸载，终端执行  sudo gem uninstall cocoapods-bin
 
 ### 脚本安装
-**安装**
+**安装**  
     curl https://raw.githubusercontent.com/Amberler/cocoapods-bin/master/cocoapods-bin-0.1.31.gem --output ~/cocoapods-bin.gem && sudo gem install ~/cocoapods-bin.gem
-**卸载**
+**卸载**  
     sudo gem uninstall cocoapods-bin
-**安装原版cocoapods-bin**
+**安装原版cocoapods-bin**  
     sudo gem install cocoapods-bin
 
 
