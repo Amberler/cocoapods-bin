@@ -56,7 +56,7 @@ module CBin
       def copy_library
         src_file = "#{@framework.versions_path}/#{@spec.name}"
         unless File.exist?(src_file)
-          raise Informative, "framework没有文件：#{src_file}"
+          raise Informative, "#{src_file}的framework没有文件(如果该组件本身就是二进制引入，则是正常现象)".green
         end
 
         dest_file = "#{library.versions_path}/#{@spec.name}"

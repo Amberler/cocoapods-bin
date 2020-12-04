@@ -175,7 +175,7 @@ module CBin
           command = "xcodebuild #{defines} #{args} CONFIGURATION_BUILD_DIR=#{build_dir} clean build -configuration #{build_model} -target #{target_name} -project ./Pods.xcodeproj 2>&1"
         end
 
-        UI.puts "command = #{command}"
+        UI.puts "command = #{command}".green
         output = `#{command}`.lines.to_a
 
         if $CHILD_STATUS.exitstatus != 0
