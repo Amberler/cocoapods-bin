@@ -6,13 +6,14 @@
 cocoapods-bin 已经不维护了，新出的cocoapods-imy-bin又更便捷，目前市面上还没有无损迁移方案
 没办法了，那就自己动手吧
 
-v.0.0.2  
-**默认只编译arm64架构**  
+v.0.0.3  
+**默认只编译arm64架构，仅支持真机调试**  
 **解决可能出现的framework编译失败问题**  
 **修改插件名为cocoapods-bin，兼容之前的项目**  
 **版本号比原生cocoapods-bin大一个版本，为0.1.31，替代cocoapods-bin插件**   
 **pod install OR update 时候，删除xxx-build-temp目录**  
-**yml配置文件新增other_code_repo_url，支持本地配置多个源码仓库，通过pod bin init 配置，多个仓库地址用英文逗号隔开**  
+**yml配置文件新增other_code_repo_url，支持设置额外的一个源码仓库，如果有其他多个仓库，请在Podfile设置source关键字**  
+**解决编译二进制的时候，未引入Podfile的source，导致找不到组件的问题**
 
 ### 使用方法
 1. 克隆项目到本地
