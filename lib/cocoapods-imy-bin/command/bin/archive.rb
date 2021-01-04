@@ -152,14 +152,17 @@ module Pod
           Podfile.execute_with_bin_plugin do
             Podfile.execute_with_use_binaries(!@code_dependencies) do
 
+              podfileFile = Pod::Config.instance.podfile
                 argvs = [
-                  "--sources=#{@sources},#{CBin.config.other_code_repo_url}",
+                  "--sources=#{podfileFile.sources.join(",")},#{CBin.config.other_code_repo_url}",
                   "--gen-directory=#{CBin::Config::Builder.instance.gen_dir}",
                   '--clean',
                   '--use-libraries',
+                  '--repo-update',
                   *@additional_args
                 ]
                 podfile= File.join(Pathname.pwd, "Podfile")
+
                 if File.exist?(podfile)
                   argvs += ['--use-podfile']
                 end

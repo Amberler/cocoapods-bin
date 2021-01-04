@@ -2,6 +2,7 @@
 require 'cocoapods'
 require 'cocoapods-imy-bin/native/podfile_env'
 require 'cocoapods-imy-bin/native/podfile'
+require 'cocoapods-imy-bin/config/config'
 
 module Pod
   class Command
@@ -41,9 +42,11 @@ module Pod
         end
 
         def run
+
           Update.load_local_podfile
 
           argvs = [
+            "--sources=#{sources_option(@code_dependencies, @sources)},https:\/\/cdn.cocoapods.org",
             *@additional_args
           ]
 

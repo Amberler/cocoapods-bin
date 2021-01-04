@@ -6,7 +6,6 @@ require 'cocoapods-imy-bin/native/podfile_env'
 module Pod
   class Podfile
     # TREAT_DEVELOPMENTS_AS_NORMAL = 'treat_developments_as_normal'.freeze
-
     module DSL
       def allow_prerelease!
         set_internal_hash_value(ALLOW_PRERELEASE, true)

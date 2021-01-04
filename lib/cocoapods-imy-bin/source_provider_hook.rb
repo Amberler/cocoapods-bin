@@ -4,7 +4,6 @@ require 'cocoapods/user_interface'
 
 Pod::HooksManager.register('cocoapods-bin', :pre_install) do |_context, _|
   require 'cocoapods-imy-bin/native'
-
   # pod bin repo update 更新二进制私有源
   Pod::Command::Bin::Repo::Update.new(CLAide::ARGV.new([])).run
 
@@ -39,16 +38,18 @@ Pod::HooksManager.register('cocoapods-bin', :pre_install) do |_context, _|
 end
 
 Pod::HooksManager.register('cocoapods-bin', :source_provider) do |context, _|
+
   sources_manager = Pod::Config.instance.sources_manager
   podfile = Pod::Config.instance.podfile
 
   if podfile
     # 添加源码私有源 && 二进制私有源
-    added_sources = [sources_manager.code_source]
+    added_sources = [sources_manager.code_source,sources_manager.other_source]
     if podfile.use_binaries? || podfile.use_binaries_selector
       added_sources << sources_manager.binary_source
       added_sources.reverse!
-   end
+    end
+    
     added_sources.each { |source| context.add_source(source) }
   end
 end
@@ -60,13 +61,5 @@ Pod::HooksManager.register('cocoapods-bin', :post_install) do |context, _|
       print "所有组件处理完毕.".green
      end 
   end
-  # if podfile
-  #   # 添加源码私有源 && 二进制私有源
-  #   added_sources = [sources_manager.code_source]
-  #   if podfile.use_binaries? || podfile.use_binaries_selector
-  #     added_sources << sources_manager.binary_source
-  #     added_sources.reverse!
-  #  end
-  #   added_sources.each { |source| context.add_source(source) }
-  # end
+
 end

@@ -15,6 +15,14 @@ module Pod
       def binary_source
         source_with_name_or_url(CBin.config.binary_repo_url)
       end
+
+       # 其他源码 source
+      def other_source
+        source_with_name_or_url(CBin.config.other_code_repo_url)
+      end
+
+
+
     end
   end
 end
